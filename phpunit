@@ -1,0 +1,2 @@
+#!/bin/bash 
+/usr/local/php-cgi/7.3/bin/php vendor/phpunit/phpunit/phpunit

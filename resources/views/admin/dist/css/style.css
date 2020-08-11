@@ -1,0 +1,15 @@
+.tab-content>.tab-pane {
+	background-color:#fff;
+    padding: 12px;
+    border-left: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-radius: .25rem;
+    border-top-left-radius: 0;
+}
+.container-fluid img {max-width:98%;}
+
+.table sub {font-size:0.6rem;margin-left:3px;color: #aaa;}
+
+.trhover tr:hover td {background-color:#cbf7f9;color:#000!important}
+.trhover tr:hover td a , .trhover tr:hover td i {color:#000}

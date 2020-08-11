@@ -1,0 +1,712 @@
+
+.toast {
+  max-width: 350px;
+  overflow: hidden;
+  font-size: 0.875rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  border-radius: 0.25rem;
+}
+
+.toast:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.toast.showing {
+  opacity: 1;
+}
+
+.toast.show {
+  display: block;
+  opacity: 1;
+}
+
+.toast.hide {
+  display: none;
+}
+
+.toast-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  color: #6c757d;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-clip: padding-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.toast-body {
+  padding: 0.75rem;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+}
+
+.modal.fade .modal-dialog {
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  -webkit-transform: translate(0, -50px);
+  transform: translate(0, -50px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal.fade .modal-dialog {
+    transition: none;
+  }
+}
+
+.modal.show .modal-dialog {
+  -webkit-transform: none;
+  transform: none;
+}
+
+.modal-dialog-scrollable {
+  display: -ms-flexbox;
+  display: flex;
+  max-height: calc(100% - 1rem);
+}
+
+.modal-dialog-scrollable .modal-content {
+  max-height: calc(100vh - 1rem);
+  overflow: hidden;
+}
+
+.modal-dialog-scrollable .modal-header,
+.modal-dialog-scrollable .modal-footer {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.modal-dialog-scrollable .modal-body {
+  overflow-y: auto;
+}
+
+.modal-dialog-centered {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: calc(100% - 1rem);
+}
+
+.modal-dialog-centered::before {
+  display: block;
+  height: calc(100vh - 1rem);
+  content: "";
+}
+
+.modal-dialog-centered.modal-dialog-scrollable {
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.modal-dialog-centered.modal-dialog-scrollable .modal-content {
+  max-height: none;
+}
+
+.modal-dialog-centered.modal-dialog-scrollable::before {
+  content: none;
+}
+
+.modal-content {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  outline: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+.modal-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.modal-header .close, .modal-header .mailbox-attachment-close {
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.modal-body {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+.modal-footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.modal-footer > :not(:first-child) {
+  margin-left: .25rem;
+}
+
+.modal-footer > :not(:last-child) {
+  margin-right: .25rem;
+}
+
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+  }
+  .modal-dialog-scrollable {
+    max-height: calc(100% - 3.5rem);
+  }
+  .modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 3.5rem);
+  }
+  .modal-dialog-centered {
+    min-height: calc(100% - 3.5rem);
+  }
+  .modal-dialog-centered::before {
+    height: calc(100vh - 3.5rem);
+  }
+  .modal-content {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  }
+  .modal-sm {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg,
+  .modal-xl {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-xl {
+    max-width: 1140px;
+  }
+}
+
+
+
+.modal-dialog .overlay {
+  background-color: #000;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: .7;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1052;
+}
+
+.modal-content.bg-warning .modal-header,
+.modal-content.bg-warning .modal-footer {
+  border-color: #343a40;
+}
+
+.modal-content.bg-primary .close, .modal-content.bg-primary .mailbox-attachment-close, .modal-content.bg-secondary .close, .modal-content.bg-secondary .mailbox-attachment-close, .modal-content.bg-info .close, .modal-content.bg-info .mailbox-attachment-close, .modal-content.bg-danger .close, .modal-content.bg-danger .mailbox-attachment-close, .modal-content.bg-success .close, .modal-content.bg-success .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toasts-top-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1040;
+}
+
+.toasts-top-right.fixed {
+  position: fixed;
+}
+
+.toasts-top-left {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1040;
+}
+
+.toasts-top-left.fixed {
+  position: fixed;
+}
+
+.toasts-bottom-right {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1040;
+}
+
+.toasts-bottom-right.fixed {
+  position: fixed;
+}
+
+.toasts-bottom-left {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1040;
+}
+
+.toasts-bottom-left.fixed {
+  position: fixed;
+}
+
+.toast.bg-primary {
+  background: rgba(0, 123, 255, 0.9) !important;
+}
+
+.toast.bg-primary .close, .toast.bg-primary .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-primary .toast-header {
+  background: rgba(0, 123, 255, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-secondary {
+  background: rgba(108, 117, 125, 0.9) !important;
+}
+
+.toast.bg-secondary .close, .toast.bg-secondary .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-secondary .toast-header {
+  background: rgba(108, 117, 125, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-success {
+  background: rgba(40, 167, 69, 0.9) !important;
+}
+
+.toast.bg-success .close, .toast.bg-success .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-success .toast-header {
+  background: rgba(40, 167, 69, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-info {
+  background: rgba(23, 162, 184, 0.9) !important;
+}
+
+.toast.bg-info .close, .toast.bg-info .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-info .toast-header {
+  background: rgba(23, 162, 184, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-warning {
+  background: rgba(255, 193, 7, 0.9) !important;
+}
+
+.toast.bg-warning .toast-header {
+  background: rgba(255, 193, 7, 0.85);
+  color: #1F2D3D;
+}
+
+.toast.bg-danger {
+  background: rgba(220, 53, 69, 0.9) !important;
+}
+
+.toast.bg-danger .close, .toast.bg-danger .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-danger .toast-header {
+  background: rgba(220, 53, 69, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-light {
+  background: rgba(248, 249, 250, 0.9) !important;
+}
+
+.toast.bg-light .toast-header {
+  background: rgba(248, 249, 250, 0.85);
+  color: #1F2D3D;
+}
+
+.toast.bg-dark {
+  background: rgba(52, 58, 64, 0.9) !important;
+}
+
+.toast.bg-dark .close, .toast.bg-dark .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-dark .toast-header {
+  background: rgba(52, 58, 64, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-lightblue {
+  background: rgba(60, 141, 188, 0.9) !important;
+}
+
+.toast.bg-lightblue .close, .toast.bg-lightblue .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-lightblue .toast-header {
+  background: rgba(60, 141, 188, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-navy {
+  background: rgba(0, 31, 63, 0.9) !important;
+}
+
+.toast.bg-navy .close, .toast.bg-navy .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-navy .toast-header {
+  background: rgba(0, 31, 63, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-olive {
+  background: rgba(61, 153, 112, 0.9) !important;
+}
+
+.toast.bg-olive .close, .toast.bg-olive .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-olive .toast-header {
+  background: rgba(61, 153, 112, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-lime {
+  background: rgba(1, 255, 112, 0.9) !important;
+}
+
+.toast.bg-lime .toast-header {
+  background: rgba(1, 255, 112, 0.85);
+  color: #1F2D3D;
+}
+
+.toast.bg-fuchsia {
+  background: rgba(240, 18, 190, 0.9) !important;
+}
+
+.toast.bg-fuchsia .close, .toast.bg-fuchsia .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-fuchsia .toast-header {
+  background: rgba(240, 18, 190, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-maroon {
+  background: rgba(216, 27, 96, 0.9) !important;
+}
+
+.toast.bg-maroon .close, .toast.bg-maroon .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-maroon .toast-header {
+  background: rgba(216, 27, 96, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-blue {
+  background: rgba(0, 123, 255, 0.9) !important;
+}
+
+.toast.bg-blue .close, .toast.bg-blue .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-blue .toast-header {
+  background: rgba(0, 123, 255, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-indigo {
+  background: rgba(102, 16, 242, 0.9) !important;
+}
+
+.toast.bg-indigo .close, .toast.bg-indigo .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-indigo .toast-header {
+  background: rgba(102, 16, 242, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-purple {
+  background: rgba(111, 66, 193, 0.9) !important;
+}
+
+.toast.bg-purple .close, .toast.bg-purple .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-purple .toast-header {
+  background: rgba(111, 66, 193, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-pink {
+  background: rgba(232, 62, 140, 0.9) !important;
+}
+
+.toast.bg-pink .close, .toast.bg-pink .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-pink .toast-header {
+  background: rgba(232, 62, 140, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-red {
+  background: rgba(220, 53, 69, 0.9) !important;
+}
+
+.toast.bg-red .close, .toast.bg-red .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-red .toast-header {
+  background: rgba(220, 53, 69, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-orange {
+  background: rgba(253, 126, 20, 0.9) !important;
+}
+
+.toast.bg-orange .toast-header {
+  background: rgba(253, 126, 20, 0.85);
+  color: #1F2D3D;
+}
+
+.toast.bg-yellow {
+  background: rgba(255, 193, 7, 0.9) !important;
+}
+
+.toast.bg-yellow .toast-header {
+  background: rgba(255, 193, 7, 0.85);
+  color: #1F2D3D;
+}
+
+.toast.bg-green {
+  background: rgba(40, 167, 69, 0.9) !important;
+}
+
+.toast.bg-green .close, .toast.bg-green .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-green .toast-header {
+  background: rgba(40, 167, 69, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-teal {
+  background: rgba(32, 201, 151, 0.9) !important;
+}
+
+.toast.bg-teal .close, .toast.bg-teal .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-teal .toast-header {
+  background: rgba(32, 201, 151, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-cyan {
+  background: rgba(23, 162, 184, 0.9) !important;
+}
+
+.toast.bg-cyan .close, .toast.bg-cyan .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-cyan .toast-header {
+  background: rgba(23, 162, 184, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-white {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.toast.bg-white .toast-header {
+  background: rgba(255, 255, 255, 0.85);
+  color: #1F2D3D;
+}
+
+.toast.bg-gray {
+  background: rgba(108, 117, 125, 0.9) !important;
+}
+
+.toast.bg-gray .close, .toast.bg-gray .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-gray .toast-header {
+  background: rgba(108, 117, 125, 0.85);
+  color: #ffffff;
+}
+
+.toast.bg-gray-dark {
+  background: rgba(52, 58, 64, 0.9) !important;
+}
+
+.toast.bg-gray-dark .close, .toast.bg-gray-dark .mailbox-attachment-close {
+  color: #ffffff;
+  text-shadow: 0 1px 0 #000;
+}
+
+.toast.bg-gray-dark .toast-header {
+  background: rgba(52, 58, 64, 0.85);
+  color: #ffffff;
+}
+
+#toast-container .toast {
+  background-color: #007bff;
+}
+
+#toast-container .toast-success {
+  background-color: #28a745;
+}
+
+#toast-container .toast-error {
+  background-color: #dc3545;
+}
+
+#toast-container .toast-info {
+  background-color: #17a2b8;
+}
+
+#toast-container .toast-warning {
+  background-color: #ffc107;
+}

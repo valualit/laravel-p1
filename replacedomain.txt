@@ -1,0 +1,15 @@
+UPDATE `zk_page` SET `text` = REPLACE(`text`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_page` SET `info` = REPLACE(`info`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section3` SET `text` = REPLACE(`text`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section3` SET `info` = REPLACE(`info`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section8` SET `text` = REPLACE(`text`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section8` SET `info` = REPLACE(`info`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section9` SET `text` = REPLACE(`text`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section9` SET `info` = REPLACE(`info`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section10` SET `text` = REPLACE(`text`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_section10` SET `info` = REPLACE(`info`, 'new.dom.ru', 'dom.ru' ) ;
+UPDATE `zk_page_widjets` SET `info` = REPLACE(`info`, 'new.dom.ru', 'dom.ru' ) ;
+
+
+
+
